@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Matdaan Portal — Cast Your Vote</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="voting.css">
+</head>
+<body>
+
+<div class="tricolor-bar"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <span style="font-size:1.4rem;">🗳️</span>
+    <div class="logo-text">Bharat <span>Matdaan</span> Portal</div>
+  </div>
+  <div class="topbar-voter">
+    <div class="voter-chip">
+      👤 <strong id="voter-name-display">Voter</strong> &nbsp;·&nbsp; <span id="voter-epic-display">—</span>
+    </div>
+    <button class="logout-btn" onclick="logout()">Sign out</button>
+  </div>
+</div>
+
+<div class="main-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>States &amp; Constituencies</h3>
+    <div id="sidebar-states"></div>
+  </div>
+
+  <!-- CENTER PANEL -->
+  <div class="center-panel">
+    <div class="progress-strip"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+    <div class="panel-header">
+      <h2>Cast Your Vote</h2>
+      <p>Select your preferred candidate for each constituency</p>
+    </div>
+
+    <div class="const-nav">
+      <button class="nav-btn" id="prev-btn" onclick="prevConst()">← Prev</button>
+      <div class="const-counter" id="const-counter">1 / 543</div>
+      <button class="nav-btn" id="next-btn" onclick="nextConst()">Next →</button>
+    </div>
+
+    <div class="constituency-label" id="const-name-label">
+      <span>📍</span> Loading...
+    </div>
+
+    <div class="candidates-list" id="candidates-list"></div>
+
+    <div class="vote-action">
+      <div class="selected-preview" id="selected-preview"></div>
+      <button class="cast-vote-btn" id="cast-vote-btn" onclick="handleVoteClick()" disabled>
+        Select a candidate to vote
+      </button>
+    </div>
+  </div>
+
+  <!-- RESULTS PANEL -->
+  <div class="results-panel">
+    <h3>Live Seat Tally</h3>
+
+    <div class="seat-summary">
+      <div class="seat-mini">
+        <div class="num" id="votes-cast">0</div>
+        <div class="lbl">Voted</div>
+      </div>
+      <div class="seat-mini">
+        <div class="num" id="seats-remaining">543</div>
+        <div class="lbl">Remaining</div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:0.75rem;">Parliament</h3>
+    <div class="parliament-grid" id="parliament-grid"></div>
+
+    <h3 style="margin-bottom:0.75rem;margin-top:1rem;">Party Seats</h3>
+    <div class="party-bar-list" id="party-bar-list"></div>
+
+    <div id="govt-banner" class="hung-banner" style="margin-top:1rem;"></div>
+  </div>
+
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script src="voting.js"></script>
+</body>
+</html>
